@@ -9,7 +9,6 @@ from app.db import init_db
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     await init_db()
-    await bot.set_webhook(settings.webhook_url)
     yield
     await bot.delete_webhook(drop_pending_updates=True)
 
