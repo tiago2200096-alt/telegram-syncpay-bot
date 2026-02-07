@@ -159,3 +159,20 @@ async def handle_text(m: Message):
                 [InlineKeyboardButton(text="🆘 Suporte", url=support_url())]
             ])
         )
+@dp.message(Command("getfileid"))
+async def get_file_id(m: Message):
+    if m.reply_to_message and m.reply_to_message.photo:
+        file_id = m.reply_to_message.photo[-1].file_id
+        await m.answer(f"Photo file_id:\n{file_id}")
+
+    elif m.reply_to_message and m.reply_to_message.document:
+        file_id = m.reply_to_message.document.file_id
+        await m.answer(f"Document file_id:\n{file_id}")
+
+    elif m.reply_to_message and m.reply_to_message.video:
+        file_id = m.reply_to_message.video.file_id
+        await m.answer(f"Video file_id:\n{file_id}")
+
+    else:
+        await m.answer("Responda a uma imagem, vídeo ou arquivo com /getfileid")
+        
