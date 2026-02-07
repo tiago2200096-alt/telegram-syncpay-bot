@@ -26,4 +26,6 @@ async def telegram_webhook(secret: str, req: Request):
 @app.get("/")
 async def root():
     return {"status": "ok"}
-  
+  # Arquivo mantido apenas para compatibilidade
+# O bot agora roda via polling em app/polling.py
+
