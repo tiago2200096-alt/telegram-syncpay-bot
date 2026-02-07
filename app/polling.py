@@ -1,6 +1,8 @@
 import asyncio
 from app.bot import bot, dp
 from app.db import init_db
+from app.media_store import init_media_db
+
 
 async def main():
     # Garante que não existe webhook e limpa fila antiga
